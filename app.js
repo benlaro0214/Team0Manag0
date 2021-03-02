@@ -21,6 +21,33 @@ const log = new Logger();
 //* Blank array to be filled in with pushed constructors classes.
 const teamMembersArray = [];
 
+
+function cliIntro() {
+	inquirer.prompt(cliIntroQuestion).then((appStart) => {
+		if (appStart.cliIntroQ === 'Yes') {
+			log.green('Please Select type of employee');
+			teamMemberLoop();
+		} else {
+			log.yellow(`Application stopped `);
+		}
+	});
+}
+
+
+//* Function to determine the size of the team with additional staff members
+function teamSizeInfo() {
+	inquirer.prompt(addEmployeeQuestions).then((teamSize) => {
+		if (teamSize.teamSize === 'Yes') {
+			teamMemberLoop();
+		}
+		if (teamSize.teamSize === 'No') {
+			renderHTML(teamMembersArray);
+		}
+	});
+}
+
+
+
 //* Introduction Question to open the application
 const cliIntroQuestion = {
 	type: 'list',
@@ -124,29 +151,7 @@ const internQuestions = [
 ];
 
 
-function cliIntro() {
-	inquirer.prompt(cliIntroQuestion).then((appStart) => {
-		if (appStart.cliIntroQ === 'Yes') {
-			log.green('Please Select type of employee');
-			teamMemberLoop();
-		} else {
-			log.yellow(`Application stopped `);
-		}
-	});
-}
 
-
-//* Function to determine the size of the team with additional staff members
-function teamSizeInfo() {
-	inquirer.prompt(addEmployeeQuestions).then((teamSize) => {
-		if (teamSize.teamSize === 'Yes') {
-			teamMemberLoop();
-		}
-		if (teamSize.teamSize === 'No') {
-			renderHTML(teamMembersArray);
-		}
-	});
-}
 
 //* Function to choose the type of team member (manager, engineer or intern) and prompt questions to build class constructors.
 function teamMemberLoop() {
