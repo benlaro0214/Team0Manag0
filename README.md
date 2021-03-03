@@ -6,20 +6,13 @@ It is a Node.js command-line application that takes in information about employe
  
 ## Dependencies
 
-* node.js, inquirer                    
-
-                    
-
-                    
+* node.js 
+* inquirer                    
+* jest
+                                        
 ## Walkthrough
                    
-### Installing
-                    
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### How do use Team Profile Generator
-* Write the steps here to how to use your software. Alternatively, link to a video that provides the information  .
+Please view the video here: https://youtu.be/Lw0nI-1cy7A
                                    
 ## Licensing
 
